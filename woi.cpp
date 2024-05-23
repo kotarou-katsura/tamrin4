@@ -296,6 +296,76 @@ public:
     {
         return workDone;
     }
+     bool validate()
+    {
+        if (id.length() >= 8 || id.length() <= 10)
+        {
+            int i;
+            if (((int)id[0] == 56 && ((int)id[1] <= 57 && (int)id[1] >= 53)) || ((int)id[0] == 57 && ((int)id[1] <= 56 && (int)id[1] >= 48)))
+            {
+
+                if (id.length() == 8)
+                {
+                    if ((int)id[2] == 42)
+                    {
+                        i = 2;
+                        int j = ++i;
+                        int count = 0;
+                        for (i; i < j + 5; i++)
+                        {
+                            if (((int)id[i] <= 51 && (int)id[i] >= 48) || ((int)id[i] <= 58 && (int)id[i] >= 55))
+                            {
+                                count++;
+                            }
+                        }
+                        if (count == 5)
+                            return true;
+                    }
+                }
+
+                if (id.length() == 9)
+                {
+                    if (((int)id[2] == 42) && (((int)id[3] >= 32 && (int)id[3] <= 47) || ((int)id[3] >= 58 && (int)id[3] <= 126)))
+                    {
+                        i = 3;
+                        int j = ++i;
+                        int count = 0;
+                        for (i; i < j + 5; i++)
+                        {
+                            if (((int)id[i] <= 51 && (int)id[i] >= 48) || ((int)id[i] <= 58 && (int)id[i] >= 55))
+                            {
+                                count++;
+                            }
+                        }
+                        if (count == 5)
+                            return true;
+                    }
+                }
+
+                if (id.length() == 10)
+                {
+                    if (
+                        ((int)id[2] == 42) && (((int)id[3] >= 32 && (int)id[3] <= 47) || ((int)id[3] >= 58 && (int)id[3] <= 126)) && (((int)id[4] >= 32 && (int)id[4] <= 47) || ((int)id[4] >= 58 && (int)id[4] <= 126)))
+                    {
+                        i = 4;
+
+                        int j = ++i;
+                        int count = 0;
+                        for (i; i < j + 5; i++)
+                        {
+                            if (((int)id[i] <= 51 && (int)id[i] >= 48) || ((int)id[i] <= 58 && (int)id[i] >= 55))
+                            {
+                                count++;
+                            }
+                        }
+                        if (count == 5)
+                            return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 };
 ostream &operator<<(ostream &strm, Employee &A)
 {
