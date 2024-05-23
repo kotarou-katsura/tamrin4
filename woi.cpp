@@ -255,6 +255,47 @@ public:
         workToDo=r.workToDo;
         return *this;
     }
+    void setId(string inputid)
+    {
+        id = inputid;
+        cin >> address;
+    }
+    string getId()
+    {
+        return id;
+    }
+    void setHourWork(int input)
+    {
+        hourWork = input;
+    }
+    int getHourWork()
+    {
+        return hourWork;
+    }
+    void setSalaryPerHour(int input)
+    {
+        salaryPerHour = input;
+    }
+    int getSalaryPerHour()
+    {
+        return salaryPerHour;
+    }
+    void setWorkToDo(int input)
+    {
+        workToDo = input;
+    }
+    int getWorkToDo()
+    {
+        return workToDo;
+    }
+    void setWorkDone(int input)
+    {
+        workDone = input;
+    }
+    int getWorkDone()
+    {
+        return workDone;
+    }
 };
 ostream &operator<<(ostream &strm, Employee &A)
 {
