@@ -250,7 +250,7 @@ public:
     }
     friend ostream &operator<<(ostream &strm, Employee &A);
     friend istream &operator>>(istream &strm, Employee &A);
-        Employee &operator=(const Employee &r)
+    Employee &operator=(const Employee &r)
     {
         name = r.name;
         address = r.address;
@@ -377,15 +377,15 @@ public:
         }
         return false;
     }
-        int calculateSalery()
+    int calculateSalery()
     {
-        float salary;
-        salary = ((float)workDone / (float)workToDo) * (float)hourWork * (float)salaryPerHour;
+        int salary;
+        salary = (workDone / workToDo) * hourWork * salaryPerHour;
         return salary;
     }
-        int efficiency()
+    int efficiency()
     {
-        return ((float)workDone /(float) hourWork *100);
+        return (workDone / hourWork);
     }
 };
 ostream &operator<<(ostream &strm, Employee &A)
@@ -409,7 +409,7 @@ istream &operator>>(istream &strm, Employee &A)
 class Point
 {
     int x, y;
-    
+
 public:
     Point()
     {
@@ -424,17 +424,17 @@ public:
         x = copy.x;
         y = copy.y;
     }
-     friend Point operator+(const Point &a, const Point &b)
+    friend Point operator+(const Point &a, const Point &b)
     {
 
         return Point(a.x + b.x, a.y + b.y);
     }
-       friend Point operator-(const Point &a, const Point &b)
+    friend Point operator-(const Point &a, const Point &b)
     {
 
         return Point(a.x - b.x, a.y - b.y);
     }
-        Point &operator/=(int b)
+    Point &operator/=(int b)
     {
         if (b == 0)
         {
@@ -448,7 +448,7 @@ public:
             return *this;
         }
     }
-        Point &operator=(const Point &r)
+    Point &operator=(const Point &r)
     {
         x = r.x;
         y = r.y;
@@ -484,10 +484,11 @@ class Rectangle
 {
     Point startPoint;
     int width, height;
-    
+
 public:
     Rectangle()
     {
+        // startPoint = ;
         width = 0;
         height = 0;
     }
@@ -500,7 +501,7 @@ public:
         height = copy.height;
         startPoint = copy.startPoint;
     }
-     Rectangle &operator+=(Rectangle &r)
+    Rectangle &operator+=(Rectangle &r)
     {
         if ((startPoint.getX() != r.startPoint.getX()) && (startPoint.getY() != r.startPoint.getY()))
         {
@@ -540,7 +541,7 @@ public:
             return *this;
         }
     }
-        friend Rectangle operator/(Rectangle a, Rectangle b)
+    friend Rectangle operator/(Rectangle a, Rectangle b)
     {
         Point st(((a.startPoint.getX() + b.startPoint.getX()) / 2), ((a.startPoint.getY() + b.startPoint.getY()) / 2));
         Rectangle z(st, a.height / b.height, a.width / b.width);
@@ -570,7 +571,7 @@ public:
     {
         return height;
     }
-        friend bool collisionDetection(Rectangle &f, Rectangle &s)
+    friend bool collisionDetection(Rectangle &f, Rectangle &s)
     {   
         int fx2, fy2, sx2, sy2;
         fx2 = f.getStartPoint().getX() + f.width;
@@ -583,6 +584,100 @@ public:
             return false;
     }
 };
-int main(){
+int main()
+{
+    cout << "in this program we test our methods\n";
+    Address home;
+    cout << "*Address class*\nthe default values of home :  " << home << endl;
+    cin >> home;
+    cout << "the new values of home:" << home << endl;
+    cout << "+edite  :   the city name = " << home.getCity() << " \n            the new city name:";
+    string newName;
+    cin >> newName;
+    home.setCity(newName);
+    cout << "new value of home :  " << home;
+    Person detective;
+    cout << "\n*Person class*\nthe default values of detective :  " << detective << endl;
+    cin >> detective;
+    if (validvalue == false)
+        return 0;
+    cout << "the new values of the detective:" << detective << endl;
+    Person teacherCpy;
+    teacherCpy = detective;
+    cout << "the values of the teacher :  " << teacherCpy << endl;
+    cout << "+edite  :   the name = " << teacherCpy.getName() << " \n            the new name = ";
+    cin >> newName;
+    teacherCpy.setName(newName);
+    cout << " \n            the id = " << teacherCpy.getId() << " \n            the new id = ";
+    string newId;
+    cin >> newId;
+    teacherCpy.setId(newId);
+    if (validvalue == false)
+        return 0;
+    cout << "\n*Employee class*\nthe new values of the teacher:" << teacherCpy << endl;
+    Employee cybersecurityEngineer;
+    cout << "the default values of cybersecurity Engineer:" << cybersecurityEngineer << endl;
+    cin >> cybersecurityEngineer;
+    if (validvalue == false)
+        return 0;
+    cout << "the new values of cybersecurity Engineer:" << cybersecurityEngineer << endl;
+    cout << "the salary:" << cybersecurityEngineer.calculateSalery() << endl;
+    cout << "the efficiency:" << cybersecurityEngineer.efficiency() << endl;
+    cout << "----------------------------\n*Point class*\n";
+    Point point1;
+    cout << "the default value of point1 :    x:" << point1.getX() << "   y:" << point1.getY() << endl
+         << "enter the new value of x and y:";
+    int xx, yy;
+    cin >> xx >> yy;
+    point1.setX(xx);
+    point1.setY(yy);
+    Point point2;
+    cout << "enter the value of x and y of point2:";
+    cin >> xx >> yy;
+    point2.setX(xx);
+    point2.setY(yy);
+    Point result = point1 + point2;
+    cout << "point1+point2 = (" << result.getX() << " , " << result.getY() << ")" << endl;
+    result = point1 - point2;
+    cout << "point1-point2 = (" << result.getX() << " , " << result.getY() << ")" << endl;
+    Point cpypoint = point1;
+    cpypoint /= 2;
+    cout << "point1/=2   point1= (" << cpypoint.getX() << " , " << cpypoint.getY() << ")" << endl;
+    if (point1 >= point2)
+        cout << "the point1 >= point2\n";
+    else
+        cout << "the point1 < point2\n";
 
+    Rectangle regtangle1, regtangle2, cpyregtangle;
+    int heinput, widinput, xinput, yinput;
+    Point pointInRegt;
+    cout << "*Rectangle class*\nthe default value of regtangle1:\nheight = " << regtangle1.getHeight() << "   Width = " << regtangle1.getWidth() << "   startPoint = " << "(" << regtangle1.getStartPoint().getX() << "," << regtangle1.getStartPoint().getY() << ")" << endl
+         << "enter the new value of ( x , y ) and height and width and x:";
+    cin >> xinput >> yinput >> heinput >> widinput;
+    regtangle1.setHeight(heinput);
+    regtangle1.setWidth(widinput);
+    pointInRegt.setX(xinput);
+    pointInRegt.setY(yinput);
+    regtangle1.setStartPoint(pointInRegt);
+    cout << "enter the new value of ( x , y ) and height and width and x:";
+    cin >> xinput >> yinput >> heinput >> widinput;
+    regtangle2.setHeight(heinput);
+    regtangle2.setWidth(widinput);
+    pointInRegt.setX(xinput);
+    pointInRegt.setY(yinput);
+    regtangle2.setStartPoint(pointInRegt);
+    cpyregtangle = regtangle1;
+    cpyregtangle += regtangle2;
+    cout << "regtangle1 += regtangle2     regtangle1 =(" << "(" << regtangle1.getStartPoint().getX() << "," << regtangle1.getStartPoint().getY() << ")" << " , " << regtangle1.getHeight() << " , " << regtangle1.getWidth() << ")\n";
+    cpyregtangle = regtangle1;
+    cpyregtangle -= regtangle2;
+    cout << "regtangle1 -= regtangle2     regtangle1 = (" << "(" << regtangle1.getStartPoint().getX() << "," << regtangle1.getStartPoint().getY() << ")" << " , " << regtangle1.getHeight() << " , " << regtangle1.getWidth() << ")\n";
+
+    cpyregtangle = regtangle1;
+    Rectangle resultRegt = operator/(cpyregtangle, regtangle2);
+    cout << "regtangle1 / regtangle2 = ( (" << resultRegt.getStartPoint().getX() << "," << resultRegt.getStartPoint().getY() << ") , " << resultRegt.getHeight() << " , " << resultRegt.getWidth() << ")\n";
+    if (collisionDetection(regtangle1, regtangle2))
+        cout << "have a collision\n";
+    else
+        cout << "haven't collision\n";
 }
