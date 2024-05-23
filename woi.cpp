@@ -377,9 +377,13 @@ public:
     }
         int calculateSalery()
     {
-        int salary;
-        salary = (workDone / workToDo) * hourWork * salaryPerHour;
+        float salary;
+        salary = ((float)workDone / (float)workToDo) * (float)hourWork * (float)salaryPerHour;
         return salary;
+    }
+        int efficiency()
+    {
+        return ((float)workDone /(float) hourWork);
     }
 };
 ostream &operator<<(ostream &strm, Employee &A)
