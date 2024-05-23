@@ -570,6 +570,18 @@ public:
     {
         return height;
     }
+        friend bool collisionDetection(Rectangle &f, Rectangle &s)
+    {   
+        int fx2, fy2, sx2, sy2;
+        fx2 = f.getStartPoint().getX() + f.width;
+        fy2 = f.getStartPoint().getY() - f.height;
+        sx2 = s.getStartPoint().getX() + s.width;
+        sy2 = s.getStartPoint().getY() - s.height;
+        if (fx2 > s.getStartPoint().getX() && f.getStartPoint().getX() < sx2 && f.getStartPoint().getY() < sy2 && fy2 > s.getStartPoint().getY())
+            return true;
+        else
+            return false;
+    }
 };
 int main(){
 
