@@ -14,7 +14,20 @@ class Address{
         city = cityInput;
         street = streetInput;
     }
+    friend ostream &operator<<(ostream &, Address &);
+    friend istream &operator>>(istream &, Address &);
 };
+ostream &operator<<(ostream &strm, Address &A)
+{
+    strm << "country = " << A.country << "   city = " << A.city << "   street = " << A.street;
+    return strm;
+}
+istream &operator>>(istream &strm, Address &A)
+{
+    cout << "enter country city and street name in order:";
+    strm >> A.country >> A.city >> A.street;
+    return strm;
+}
 int main(){
 
 }
