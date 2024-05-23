@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+sing namespace std;
 bool validvalue = true;
 class Address
 {
@@ -230,7 +230,11 @@ public:
     }
     Employee(string nameinput, string idinput, int hourWorkinnput, int salaryPerHourinput, int workToDoinput, int workDoneinput) : name(nameinput), id(idinput), hourWork(hourWorkinnput), salaryPerHour(salaryPerHourinput), workDone(workDoneinput), workToDo(workToDoinput)
     {
-
+        if (!validate())
+        {
+            cout << "invalid id!\n";
+            validvalue = false;
+        }
     }
     Employee(const Employee &copy)
     {
@@ -244,7 +248,7 @@ public:
     }
     friend ostream &operator<<(ostream &strm, Employee &A);
     friend istream &operator>>(istream &strm, Employee &A);
-    Employee &operator=(const Employee &r)
+        Employee &operator=(const Employee &r)
     {
         name = r.name;
         address = r.address;
@@ -259,6 +263,11 @@ public:
     {
         id = inputid;
         cin >> address;
+        if (!validate())
+        {
+            cout << "invalid id!\n";
+            validvalue = false;
+        }
     }
     string getId()
     {
@@ -296,7 +305,7 @@ public:
     {
         return workDone;
     }
-     bool validate()
+    bool validate()
     {
         if (id.length() >= 8 || id.length() <= 10)
         {
@@ -366,19 +375,6 @@ public:
         }
         return false;
     }
-};
-ostream &operator<<(ostream &strm, Employee &A)
-{
-    strm << "   name = " << A.name << "   id = " << A.id << "   address = " << A.address << "    hour work = " << A.hourWork << "   salary per hour = " << A.salaryPerHour << "  work to do = " << A.workToDo << "    work Done = " << A.workDone;
-    return strm;
-}
-istream &operator>>(istream &strm, Employee &A)
-{
-    cout << "enter name,id,address,hourwork ,salary per hour,work to do,work done in order:";
-    strm >> A.name >> A.id;
-    strm >> A.address >> A.hourWork >> A.salaryPerHour >> A.workToDo >> A.workDone;
-    return strm;
-}
 int main(){
 
 }
