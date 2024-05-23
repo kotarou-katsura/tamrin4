@@ -433,6 +433,20 @@ public:
 
         return Point(a.x - b.x, a.y - b.y);
     }
+        Point &operator/=(int b)
+    {
+        if (b == 0)
+        {
+            std::cout << "Error! division to zero\n";
+            return *this;
+        }
+        else
+        {
+            x = x / b;
+            y = y / b;
+            return *this;
+        }
+    }
 };
 int main(){
 
