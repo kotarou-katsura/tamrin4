@@ -56,7 +56,7 @@ istream &operator>>(istream &strm, Address &A)
     strm >> A.country >> A.city >> A.street;
     return strm;
 }
-class Person : public Address
+class Person 
 {
     string name, id;
     Address address;
@@ -212,6 +212,14 @@ istream &operator>>(istream &strm, Person &A)
 
     return strm;
 }
+class Employee
+{
+    int hourWork, salaryPerHour, workToDo, workDone;
+
+public:
+    string name, id;
+    Address address;
+};
 int main(){
 
 }
