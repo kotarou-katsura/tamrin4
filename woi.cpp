@@ -546,6 +546,30 @@ public:
         Rectangle z(st, a.height / b.height, a.width / b.width);
         return z;
     }
+    void setStartPoint(Point startpointinput)
+    {
+        startPoint = startpointinput;
+    }
+    void setWidth(int widthinput)
+    {
+        width = widthinput;
+    }
+    void setHeight(int heightinput)
+    {
+        height = heightinput;
+    }
+    Point getStartPoint()
+    {
+        return startPoint;
+    }
+    int getWidth()
+    {
+        return width;
+    }
+    int getHeight()
+    {
+        return height;
+    }
 };
 int main(){
 
