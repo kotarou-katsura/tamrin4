@@ -405,6 +405,10 @@ istream &operator>>(istream &strm, Employee &A)
     strm >> A.address >> A.hourWork >> A.salaryPerHour >> A.workToDo >> A.workDone;
     return strm;
 }
+class Point
+{
+    int x, y;
+};
 int main(){
 
 }
