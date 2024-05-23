@@ -244,6 +244,17 @@ public:
     }
     friend ostream &operator<<(ostream &strm, Employee &A);
     friend istream &operator>>(istream &strm, Employee &A);
+    Employee &operator=(const Employee &r)
+    {
+        name = r.name;
+        address = r.address;
+        id = r.id;
+        hourWork=r.hourWork;
+        salaryPerHour=r.salaryPerHour;
+        workDone=r.workDone;
+        workToDo=r.workToDo;
+        return *this;
+    }
 };
 ostream &operator<<(ostream &strm, Employee &A)
 {
@@ -254,12 +265,6 @@ istream &operator>>(istream &strm, Employee &A)
 {
     cout << "enter name,id,address,hourwork ,salary per hour,work to do,work done in order:";
     strm >> A.name >> A.id;
-    if (!A.validate())
-    {
-        cout << "invalid id!\n";
-        validvalue = false;
-        return strm;
-    }
     strm >> A.address >> A.hourWork >> A.salaryPerHour >> A.workToDo >> A.workDone;
     return strm;
 }
