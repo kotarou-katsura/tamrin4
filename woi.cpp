@@ -540,6 +540,12 @@ public:
             return *this;
         }
     }
+        friend Rectangle operator/(Rectangle a, Rectangle b)
+    {
+        Point st(((a.startPoint.getX() + b.startPoint.getX()) / 2), ((a.startPoint.getY() + b.startPoint.getY()) / 2));
+        Rectangle z(st, a.height / b.height, a.width / b.width);
+        return z;
+    }
 };
 int main(){
 
