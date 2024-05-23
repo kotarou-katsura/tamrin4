@@ -74,7 +74,24 @@ public:
         id = copy.id;
         address = copy.address;
     }
+    friend ostream &operator<<(ostream &strm, Person &A);
+    friend istream &operator>>(istream &strm, Person &A);
 };
+ostream &operator<<(ostream &strm, Person &A)
+{
+    strm << "  name = " << A.name << "   id = " << A.id << "   address = " << A.address;
+
+    return strm;
+}
+istream &operator>>(istream &strm, Person &A)
+{
+    cout << "enter name and id and address in order:";
+    strm >> A.name >> A.id;
+
+    strm >> A.address;
+
+    return strm;
+}
 int main(){
 
 }
