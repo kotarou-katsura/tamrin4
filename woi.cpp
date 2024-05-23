@@ -480,6 +480,11 @@ public:
         return y;
     }
 };
+class Rectangle
+{
+    Point startPoint;
+    int width, height;
+};
 int main(){
 
 }
