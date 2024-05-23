@@ -447,6 +447,21 @@ public:
             return *this;
         }
     }
+        Point &operator=(const Point &r)
+    {
+        x = r.x;
+        y = r.y;
+        return *this;
+    }
+    friend bool operator>=(const Point &f, const Point &s)
+    {
+        if (sqrt((f.x) * (f.x) + (f.y) * (f.y)) >= sqrt((s.x) * (s.x) + (s.y) * (s.y)))
+        {
+            return true;
+        }
+        else
+            return false;
+    }
 };
 int main(){
 
