@@ -1,5 +1,6 @@
 #include <iostream>
-sing namespace std;
+#include <string>
+using namespace std;
 bool validvalue = true;
 class Address
 {
@@ -383,7 +384,7 @@ public:
     }
         int efficiency()
     {
-        return ((float)workDone /(float) hourWork);
+        return ((float)workDone /(float) hourWork *100);
     }
 };
 ostream &operator<<(ostream &strm, Employee &A)
