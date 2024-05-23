@@ -99,6 +99,13 @@ public:
     {
         return address;
     }
+        Person &operator=(const Person &r)
+    {
+        name = r.name;
+        address = r.address;
+        id = r.id;
+        return *this;
+    }
 };
 ostream &operator<<(ostream &strm, Person &A)
 {
