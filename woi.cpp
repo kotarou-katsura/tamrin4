@@ -377,15 +377,15 @@ public:
         }
         return false;
     }
-    int calculateSalery()
+    float calculateSalery()
     {
-        int salary;
-        salary = (workDone / workToDo) * hourWork * salaryPerHour;
+        float salary;
+        salary = ((float)workDone /(float) workToDo) * (float)hourWork * (float)salaryPerHour;
         return salary;
     }
-    int efficiency()
+    float efficiency()
     {
-        return (workDone / hourWork);
+        return ((float)workDone /(float) hourWork*100);
     }
 };
 ostream &operator<<(ostream &strm, Employee &A)
