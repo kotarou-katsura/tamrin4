@@ -219,6 +219,29 @@ class Employee
 public:
     string name, id;
     Address address;
+    Employee()
+    {
+        name = "Elliot Alderson";
+        id = "88*ER28072";
+        hourWork = 0;
+        salaryPerHour = 0;
+        workDone = 0;
+        workToDo = 0;
+    }
+    Employee(string nameinput, string idinput, int hourWorkinnput, int salaryPerHourinput, int workToDoinput, int workDoneinput) : name(nameinput), id(idinput), hourWork(hourWorkinnput), salaryPerHour(salaryPerHourinput), workDone(workDoneinput), workToDo(workToDoinput)
+    {
+
+    }
+    Employee(const Employee &copy)
+    {
+        name = copy.name;
+        id = copy.id;
+        hourWork = copy.hourWork;
+        workDone = copy.workDone;
+        address = copy.address;
+        salaryPerHour = copy.salaryPerHour;
+        workToDo = copy.workToDo;
+    }
 };
 int main(){
 
