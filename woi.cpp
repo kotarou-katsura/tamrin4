@@ -500,6 +500,46 @@ public:
         height = copy.height;
         startPoint = copy.startPoint;
     }
+     Rectangle &operator+=(Rectangle &r)
+    {
+        if ((startPoint.getX() != r.startPoint.getX()) && (startPoint.getY() != r.startPoint.getY()))
+        {
+            std::cout << "Error!the start Points are different.\n";
+            return *this;
+        }
+        else
+        {
+            if (r.height >= height)
+            {
+                height = r.height;
+            }
+            if (r.width >= width)
+            {
+                width = r.width;
+            }
+            return *this;
+        }
+    }
+    Rectangle &operator-=(Rectangle &r)
+    {
+        if ((startPoint.getX() != r.startPoint.getX()) && (startPoint.getY() != r.startPoint.getY()))
+        {
+            std::cout << "Error!the start Points are different.\n";
+            return *this;
+        }
+        else
+        {
+            if (r.height <= height)
+            {
+                height = r.height;
+            }
+            if (r.width <= width)
+            {
+                width = r.width;
+            }
+            return *this;
+        }
+    }
 };
 int main(){
 
