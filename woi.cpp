@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
 bool validvalue = true;
 class Address
@@ -461,6 +462,22 @@ public:
         }
         else
             return false;
+    }
+    void setX(int input)
+    {
+        x = input;
+    }
+    void setY(int input)
+    {
+        y = input;
+    }
+    int getX()
+    {
+        return x;
+    }
+    int getY()
+    {
+        return y;
     }
 };
 int main(){
