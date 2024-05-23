@@ -484,6 +484,22 @@ class Rectangle
 {
     Point startPoint;
     int width, height;
+    
+public:
+    Rectangle()
+    {
+        width = 0;
+        height = 0;
+    }
+    Rectangle(Point startPointinput, int heightinput, int widthinput) : startPoint(startPointinput), width(widthinput), height(heightinput)
+    {
+    }
+    Rectangle(const Rectangle &copy)
+    {
+        width = copy.width;
+        height = copy.height;
+        startPoint = copy.startPoint;
+    }
 };
 int main(){
 
