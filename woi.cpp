@@ -16,6 +16,30 @@ class Address{
     }
     friend ostream &operator<<(ostream &, Address &);
     friend istream &operator>>(istream &, Address &);
+    void setCountry(string input)
+    {
+        country = input;
+    }
+    void setCity(string input)
+    {
+        city = input;
+    }
+    void setStreet(string input)
+    {
+        street = input;
+    }
+    string getCountry()
+    {
+        return country;
+    }
+    string getCity()
+    {
+        return city;
+    }
+    string getStreet()
+    {
+        return street;
+    }
 };
 ostream &operator<<(ostream &strm, Address &A)
 {
