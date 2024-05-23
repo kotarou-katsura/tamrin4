@@ -56,6 +56,24 @@ class Person
 {
     string name, id;
     Address address;
+    
+public:
+    Person()
+    {
+        name = "Sherlock Holmes";
+        id = "88bbs22119";
+    }
+    Person(string nameInput, string idInput) : name(nameInput), id(idInput)
+    {
+        cin >> address;
+
+    }
+    Person(const Person &copy)
+    {
+        name = copy.name;
+        id = copy.id;
+        address = copy.address;
+    }
 };
 int main(){
 
