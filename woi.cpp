@@ -66,7 +66,6 @@ public:
     Person(string nameInput, string idInput) : name(nameInput), id(idInput)
     {
         cin >> address;
-
     }
     Person(const Person &copy)
     {
@@ -76,20 +75,41 @@ public:
     }
     friend ostream &operator<<(ostream &strm, Person &A);
     friend istream &operator>>(istream &strm, Person &A);
+        void setName(string input)
+    {
+        name = input;
+    }
+    void setId(string input)
+    {
+        id = input;
+    }
+    void setStreet(Address input)
+    {
+        address = input;
+    }
+    string getName()
+    {
+        return name;
+    }
+    string getId()
+    {
+        return id;
+    }
+    Address getAddress()
+    {
+        return address;
+    }
 };
 ostream &operator<<(ostream &strm, Person &A)
 {
     strm << "  name = " << A.name << "   id = " << A.id << "   address = " << A.address;
-
     return strm;
 }
 istream &operator>>(istream &strm, Person &A)
 {
     cout << "enter name and id and address in order:";
     strm >> A.name >> A.id;
-
     strm >> A.address;
-
     return strm;
 }
 int main(){
