@@ -375,6 +375,31 @@ public:
         }
         return false;
     }
+        int calculateSalery()
+    {
+        int salary;
+        salary = (workDone / workToDo) * hourWork * salaryPerHour;
+        return salary;
+    }
+};
+ostream &operator<<(ostream &strm, Employee &A)
+{
+    strm << "   name = " << A.name << "   id = " << A.id << "   address = " << A.address << "    hour work = " << A.hourWork << "   salary per hour = " << A.salaryPerHour << "  work to do = " << A.workToDo << "    work Done = " << A.workDone;
+    return strm;
+}
+istream &operator>>(istream &strm, Employee &A)
+{
+    cout << "enter name,id,address,hourwork ,salary per hour,work to do,work done in order:";
+    strm >> A.name >> A.id;
+    if (!A.validate())
+    {
+        cout << "invalid id!\n";
+        validvalue = false;
+        return strm;
+    }
+    strm >> A.address >> A.hourWork >> A.salaryPerHour >> A.workToDo >> A.workDone;
+    return strm;
+}
 int main(){
 
 }
