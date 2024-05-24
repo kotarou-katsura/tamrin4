@@ -3,7 +3,7 @@ bool validvalue = true;
 using namespace std;
 int main()
 {
-    /* cout << "in this program we test our methods\n";
+     cout << "in this program we test our methods\n";
      Address home;
      cout << "----------------------------\n*Address class*\nthe default values of home :  " << home << endl;
      cin >> home;
@@ -67,7 +67,7 @@ int main()
          cout << "the point1 >= point2\n";
      else
          cout << "the point1 < point2\n";
-         */
+         
     Rectangle Rectangle1, Rectangle2, cpyRectangle;
     int heinput, widinput, xinput, yinput;
     Point pointInRegt;
@@ -88,7 +88,7 @@ int main()
     pointInRegt.setY(yinput);
     Rectangle2.setStartPoint(pointInRegt);
     cpyRectangle = Rectangle1;
-    /* cpyRectangle += Rectangle2;
+    cpyRectangle += Rectangle2;
      cout << "Rectangle1 += Rectangle2     Result =(" << "(" << cpyRectangle.getStartPoint().getX() << "," << cpyRectangle.getStartPoint().getY() << ")" << " , " << cpyRectangle.getHeight() << " , " << cpyRectangle.getWidth() << ")\n";
      cpyRectangle = Rectangle1;
      cpyRectangle -= Rectangle2;
@@ -97,7 +97,7 @@ int main()
      cpyRectangle = Rectangle1;
      Rectangle resultRegt = operator/(cpyRectangle, Rectangle2);
      cout << "Rectangle1 / Rectangle2 = ( (" << resultRegt.getStartPoint().getX() << "," << resultRegt.getStartPoint().getY() << ") , " << resultRegt.getHeight() << " , " << resultRegt.getWidth() << ")\n";
-     cout << "Rectangle1 and Rectangle2 ";*/
+     cout << "Rectangle1 and Rectangle2 ";
     if (collisionDetection(Rectangle1, Rectangle2))
         cout << "have a collision\n";
     else
