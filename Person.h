@@ -1,5 +1,9 @@
 #ifndef Person_H
 #define Person_H
+#include <iostream>
+#include <string>
+#include "Address.h"
+using namespace std;
 class Person
 {
     string name, id;

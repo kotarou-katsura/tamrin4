@@ -1,5 +1,6 @@
 #ifndef Rectangle_H
 #define Rectangle_H
+#include "Point.h"
 class Rectangle
 {
     Point startPoint;

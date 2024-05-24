@@ -1,4 +1,9 @@
 #include "Person.h"
+#include <iostream>
+#include <string>
+#include "Address.h"
+#include "main.h"
+using namespace std;
 Person::Person()
 {
     // the default values
@@ -8,6 +13,7 @@ Person::Person()
 Person::Person(string nameInput, string idInput) : name(nameInput), id(idInput)
 {
     cin >> address;
+    validvalue=true;
     if (!validate())
     {
         cout << "invalid id!\n";
@@ -27,6 +33,7 @@ void Person::setName(string input)
 void Person::setId(string input)
 {
     id = input;
+    validvalue=true;
     if (!validate())
     {
         cout << "invalid id!\n";
@@ -126,7 +133,8 @@ bool Person::validate()
 }
 ostream &operator<<(ostream &strm, Person &A)
 {
-    strm << "  name = " << A.name << "   id = " << A.getId() << "   address = " << A.address;
+    strm << "  name = " << A.name << "   id = " << A.getId() << "   " << A.address;
+    validvalue=true;
     if (!A.validate())
     {
         cout << "invalid id!\n";
@@ -136,8 +144,9 @@ ostream &operator<<(ostream &strm, Person &A)
 }
 istream &operator>>(istream &strm, Person &A)
 {
-    cout << "enter name and id and address in order:";
+    cout << "enter name and id:";
     strm >> A.name >> A.id;
+    validvalue=true;
     if (!A.validate())
     {
         cout << "invalid id!\n";

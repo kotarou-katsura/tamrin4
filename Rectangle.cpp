@@ -1,5 +1,6 @@
 #include "Rectangle.h"
-Rectangle::Rectangle()
+#include <iostream>
+Rectangle:: Rectangle()
 {
     width = 0;
     height = 0;

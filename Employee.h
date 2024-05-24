@@ -1,6 +1,6 @@
 #ifndef Employee_H
 #define Employee_H
-
+#include "Address.h"
 class Employee
 {
     int hourWork, salaryPerHour, workToDo, workDone;

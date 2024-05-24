@@ -1,4 +1,7 @@
 #include "Employee.h"
+#include <iostream>
+#include "main.h"
+using namespace std;
 Employee::Employee()
 { // no arguman constructor
     name = "Elliot Alderson";
@@ -10,6 +13,7 @@ Employee::Employee()
 }
 Employee::Employee(string nameinput, string idinput, int hourWorkinnput, int salaryPerHourinput, int workToDoinput, int workDoneinput) : name(nameinput), id(idinput), hourWork(hourWorkinnput), salaryPerHour(salaryPerHourinput), workDone(workDoneinput), workToDo(workToDoinput)
 {
+    validvalue=true;
     if (!validate())
     {
         cout << "invalid id!\n";
@@ -42,6 +46,7 @@ void Employee::setId(string inputid)
 {
     id = inputid;
     cin >> address;
+    validvalue=true;
     // check for valid id
     if (!validate())
     {
@@ -169,19 +174,22 @@ float Employee::efficiency()
 
 ostream &operator<<(ostream &strm, Employee &A)
 {
-    strm << "   name = " << A.name << "   id = " << A.id << "   address = " << A.address << "    hour work = " << A.hourWork << "   salary per hour = " << A.salaryPerHour << "  work to do = " << A.workToDo << "    work Done = " << A.workDone;
+    strm << "   name = " << A.name << "   id = " << A.id << "    " << A.address << "    hour work = " << A.hourWork << "   salary per hour = " << A.salaryPerHour << "  work to do = " << A.workToDo << "    work Done = " << A.workDone;
     return strm;
 }
 istream &operator>>(istream &strm, Employee &A)
 {
-    cout << "enter name,id,address,hourwork ,salary per hour,work to do,work done in order:";
+    cout << "enter name and id:";
     strm >> A.name >> A.id;
+    validvalue=true;
     if (!A.validate())
     {
         cout << "invalid id!\n";
         validvalue = false;
         return strm;
     }
-    strm >> A.address >> A.hourWork >> A.salaryPerHour >> A.workToDo >> A.workDone;
+    strm >> A.address;
+    cout<<"enter hourwork ,salary per hour,work to do,work done in order:";
+     strm >> A.hourWork >> A.salaryPerHour >> A.workToDo >> A.workDone;
     return strm;
 }

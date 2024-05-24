@@ -1,4 +1,6 @@
 #include "Point.h"
+#include <iostream>
+#include <cmath>
 Point::Point()
 {
     x = 0;

@@ -1,5 +1,7 @@
 #ifndef Address_H
 #define Address_H
+#include <string>
+using namespace std;
 class Address
 {
     string country, city, street;
