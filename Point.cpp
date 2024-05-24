@@ -26,6 +26,7 @@ Point operator-(const Point &a, const Point &b)
 }
 Point &Point::operator/=(int b)
 {
+    // this operator calculate x/b ,y/b and return that point
     if (b == 0)
     {
         std::cout << "Error! division to zero\n";
@@ -46,6 +47,7 @@ Point &Point::operator=(const Point &r)
 }
 bool operator>=(const Point &f, const Point &s)
 {
+    // this operator calculate the difference between the point and the point (0,0) and then compare it to other.
     if (sqrt((f.x) * (f.x) + (f.y) * (f.y)) >= sqrt((s.x) * (s.x) + (s.y) * (s.y)))
     {
         return true;
